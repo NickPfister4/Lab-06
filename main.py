@@ -7,7 +7,7 @@ def encode(password):
     return encoded_password
 
 
-password = None  
+password = None
 encoded_password = None
 if __name__ == "__main__":
     while True:
@@ -24,9 +24,13 @@ if __name__ == "__main__":
                 password = (input("Please enter your password to encode: "))
                 encoded_password = encode(password)
                 print("Your password has been encoded and stored!")
+            else:
+                pass
         elif option == "2": # Decode
             if encoded_password is not None:  # Setting up main for decoder file
                 print(f"The encoded password is {encoded_password}, and the original password is {password}.")
+            else:
+                pass
         elif option == "3":
             break
         else:
