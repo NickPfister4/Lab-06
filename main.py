@@ -6,7 +6,8 @@ def encode(password):
         encoded_password += new_digit
     return encoded_password
 
-
+password = None
+encoded_password = None
 while True:
     print("Menu")
     print("-------------")
@@ -17,11 +18,17 @@ while True:
     option = input("Please enter an option: ")
 
     if option == "1":  # Encode Password
-        password = (input("Please enter your password to encode: "))  # Original Password
-        encoded_password = encode(password)
-        print("Your password has been encoded and stored!")
+        if password is None:
+            password = (input("Please enter your password to encode: "))  # Original Password
+            encoded_password = encode(password)
+            print("Your password has been encoded and stored!")
+        else:  # Setting up for decoder file
+            pass
     elif option == "2":
-        print(f"The encoded password is {encoded_password}, and the original password is {password}.")
+        if encoded_password is not None:
+            print(f"The encoded password is {encoded_password}, and the original password is {password}.")
+        else: #Set up for decoder
+            pass
     elif option == "3":
         break
     else:
