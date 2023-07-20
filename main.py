@@ -6,6 +6,14 @@ def encode(password):
         encoded_password += new_digit
     return encoded_password
 
+def passwordDecoder(password):
+    decodedPassword = None
+    digitList = []
+    for digit in password:
+        newDigit = ((int(digit) - 3) % 10)
+        digitList.append(str(newDigit))
+    decodedPassword = "".join(digitList)
+    return decodedPassword
 
 password = None
 encoded_password = None
@@ -25,12 +33,14 @@ if __name__ == "__main__":
                 encoded_password = encode(password)
                 print("Your password has been encoded and stored!")
             else:
-                pass
+                print(f"The encoded password is {encoded_password}, and the original password is {password}.")
         elif option == "2": # Decode
             if encoded_password is not None:  # Setting up main for decoder file
                 print(f"The encoded password is {encoded_password}, and the original password is {password}.")
             else:
-                pass
+                encoded_password = str(input("Please enter your password to decode: "))
+                password = passwordDecoder(encoded_password)
+                print("Your password has been decoded and stored!")
         elif option == "3":
             break
         else:
